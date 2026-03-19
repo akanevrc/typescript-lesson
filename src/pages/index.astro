@@ -1,5 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import astroLogoUrl from "../assets/astro.svg?url";
 ---
 
-<Layout />
+<Layout>
+  <main>
+    <header class="hero">
+      <h1>TypeScript Lesson</h1>
+      <p class="author">作成者: 茜</p>
+    </header>
+
+    <section aria-labelledby="about-astro">
+      <h2 id="about-astro">このサイトについて</h2>
+      <p>
+        この教材サイトは
+        <a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a
+        >
+        を使用して作成しています。
+      </p>
+      <div class="logo-card">
+        <img
+          class="logo"
+          src={astroLogoUrl}
+          alt="Astro Logo"
+          width="120"
+          height="120"
+        />
+      </div>
+    </section>
+
+    <section aria-labelledby="goal">
+      <h2 id="goal">目標</h2>
+      <p>
+        初心者がTypeScriptの基本を理解し、Reactによるフロントエンド開発にTypeScriptを使用できること。
+      </p>
+    </section>
+
+    <section aria-labelledby="toc">
+      <h2 id="toc">目次</h2>
+      <p>コンテンツ作成ごとに順次追加します。</p>
+      <ol>
+        <li>準備中</li>
+      </ol>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    margin-bottom: 1.25rem;
+  }
+
+  .author {
+    margin-top: 0.35rem;
+    font-size: 1.02rem;
+  }
+
+  .logo-card {
+    margin-top: 0.9rem;
+    display: inline-flex;
+    padding: 0.7rem;
+    border: 1px solid rgba(220, 200, 200, 0.38);
+    border-radius: 10px;
+    background: linear-gradient(180deg, #eedddd, #ddcccc);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  .logo {
+    display: block;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
+  }
+</style>
