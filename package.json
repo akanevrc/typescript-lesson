@@ -1,0 +1,34 @@
+{
+  "name": "typescript-lesson",
+  "type": "module",
+  "version": "0.0.1",
+  "author": "akanevrc",
+  "license": "CC0-1.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check:all": "pnpm format && pnpm typecheck && pnpm lint"
+  },
+  "dependencies": {
+    "astro": "^6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10",
+    "eslint": "^10",
+    "eslint-config-prettier": "^10",
+    "eslint-plugin-astro": "^1",
+    "prettier": "^3",
+    "prettier-plugin-astro": "^0",
+    "typescript-eslint": "^8"
+  }
+}
