@@ -1,5 +1,72 @@
 ---
 import Layout from "./Layout.astro";
+
+type LessonLink = {
+  href: string;
+  title: string;
+};
+
+const lessons: LessonLink[] = [
+  { href: "/lessons/01-what-is-typescript/", title: "1. TypeScriptとは何か" },
+  {
+    href: "/lessons/02-type-annotations-and-inference/",
+    title: "2. 型注釈と型推論",
+  },
+  {
+    href: "/lessons/03-basic-types/",
+    title: "3. 基本の型（primitive / array / object）",
+  },
+  {
+    href: "/lessons/04-union-and-literal-types/",
+    title: "4. Union型とLiteral型",
+  },
+  { href: "/lessons/05-narrowing/", title: "5. Narrowing（型の絞り込み）" },
+  {
+    href: "/lessons/06-type-alias-and-interface/",
+    title: "6. 型エイリアスとinterface",
+  },
+  {
+    href: "/lessons/07-function-types/",
+    title: "7. 関数型（引数・戻り値・コールバック）",
+  },
+  { href: "/lessons/08-generics-basics/", title: "8. Genericsの基本" },
+  {
+    href: "/lessons/09-special-types/",
+    title: "9. unknown / any / never / void",
+  },
+  {
+    href: "/lessons/10-type-assertion-and-as-const/",
+    title: "10. 型アサーションと as const",
+  },
+  {
+    href: "/lessons/11-class-and-access-modifiers/",
+    title: "11. クラスとアクセス修飾子",
+  },
+  {
+    href: "/lessons/12-react-with-typescript-basics/",
+    title: "12. ReactでTypeScriptを使う基本",
+  },
+  {
+    href: "/lessons/13-safe-api-data-handling/",
+    title: "13. APIデータを安全に扱う",
+  },
+  {
+    href: "/lessons/14-tsconfig-important-options/",
+    title: "14. tsconfigの最小重要項目",
+  },
+];
+
+const normalizePath = (path: string) =>
+  path.endsWith("/") ? path : `${path}/`;
+const currentPath = normalizePath(Astro.url.pathname);
+const currentIndex = lessons.findIndex(
+  (lesson) => normalizePath(lesson.href) === currentPath,
+);
+const previousLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
+const nextLesson =
+  currentIndex >= 0 && currentIndex < lessons.length - 1
+    ? lessons[currentIndex + 1]
+    : null;
 ---
 
 <Layout>
@@ -7,6 +74,26 @@ import Layout from "./Layout.astro";
     <article class="lesson-content">
       <slot />
     </article>
+    <nav class="lesson-nav" aria-label="レッスンナビゲーション">
+      {
+        previousLesson ? (
+          <a class="lesson-nav-link prev" href={previousLesson.href}>
+            ← 前へ: {previousLesson.title}
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        nextLesson ? (
+          <a class="lesson-nav-link next" href={nextLesson.href}>
+            次へ: {nextLesson.title} →
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
   </main>
 </Layout>
 
@@ -40,5 +127,42 @@ import Layout from "./Layout.astro";
     padding: 0.1em 0.35em;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.08);
+  }
+
+  .lesson-nav {
+    margin-top: 2.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 154, 176, 0.3);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .lesson-nav-link {
+    display: inline-block;
+    max-width: 48%;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .lesson-nav-link.next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  @media (max-width: 720px) {
+    .lesson-nav {
+      flex-direction: column;
+    }
+
+    .lesson-nav-link {
+      max-width: 100%;
+    }
+
+    .lesson-nav-link.next {
+      text-align: left;
+      margin-left: 0;
+    }
   }
 </style>
