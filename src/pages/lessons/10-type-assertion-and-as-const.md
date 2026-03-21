@@ -17,7 +17,7 @@ const value = "hello" as string;
 `as const` は、値をできるだけリテラルとして固定するための特殊なアサーションです。
 
 ```ts
-const status = "loading" as const; // 型は string ではなく "loading"
+let status = "loading" as const; // 型は string ではなく "loading"
 ```
 
 ## Why

@@ -7,7 +7,7 @@ title: "12. ReactでTypeScriptを使う基本"
 
 ## What
 
-ReactでTypeScriptを使うとは、主に次の3つへ型を付けることです。
+ReactでTypeScriptを使うと便利なのは、主に次の3つへ型付けです。
 
 - Props（親から受け取る値）
 - State（コンポーネント内部の状態）

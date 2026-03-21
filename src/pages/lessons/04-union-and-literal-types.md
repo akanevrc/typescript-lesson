@@ -79,9 +79,9 @@ type FetchState =
 ```
 
 これは、「`idle`/`loading`のときは`status`だけ」だけど、「`success`は`data`も持っている」「`error`は`message`も持っている」という型を定義しています！
-この設計にしておくと、次の `05. Narrowing` で安全に分岐できます（めちゃくちゃすごい技）。
+この設計にしておくと、次の `05. Narrowing` で安全に分岐できます（TypeScriptのめちゃくちゃすごい技）。
 
-## よくある注意点
+## 注意点
 
 - `string | number` は「どちらか一方」であり「両方」ではない（両方って何？）
 - Literal型を使わないと、候補の制約が効かない

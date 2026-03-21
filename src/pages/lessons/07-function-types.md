@@ -76,4 +76,4 @@ function runTask(onSuccess: OnSuccess): void {
 
 - 関数型は呼び出し契約を表現する
 - 引数・戻り値・コールバックを型で固定すると安全性が上がる
-- 実務では関数シグネチャ（`(argType1, argType2, ...) => returnType`）が特に重要
+- 関数シグネチャ（`(argType1, argType2, ...) => returnType`）は特に重要

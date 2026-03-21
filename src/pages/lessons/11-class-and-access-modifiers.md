@@ -35,6 +35,7 @@ class User {
   private loginCount: number;
 
   constructor(name: string) {
+    // コンストラクタを覚えていますか？
     this.name = name;
     this.loginCount = 0;
   }

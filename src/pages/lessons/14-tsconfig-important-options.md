@@ -65,6 +65,7 @@ title: "14. tsconfigの最小重要項目"
 
 `null` / `undefined` を明示的に扱う必要が出るため、
 「存在しない値」へのアクセスミスを減らせます。
+（上記の `strict` を `true` にすると、`strictNullChecks` も自動的に `true` になるはず）
 
 ### 4. 最小サンプル
 
@@ -74,8 +75,7 @@ title: "14. tsconfigの最小重要項目"
     "target": "ES2022",
     "module": "ESNext",
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "noImplicitAny": true
   }
 }
 ```
